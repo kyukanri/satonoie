@@ -2,15 +2,17 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>トップページ</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>合同会社ケーユー管理</title>
+<link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
 
-<div class="menu-btn" id="menuBtn">
-    <span></span>
-    <span></span>
-</div>
+<button class="menu-btn" id="menuBtn" type="button" aria-label="メニューを開く" aria-expanded="false">
+    <span class="menu-label">MENU</span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+</button>
 
 <div class="overlay" id="overlay"></div>
 
@@ -22,31 +24,43 @@
 </div>
 
 <section class="hero">
-
-    <img src="images/hero.jpg" alt="トップ画像">
+    <img
+        src="images/hero.jpg"
+        alt="トップ画像"
+        loading="eager"
+        decoding="async">
 
     <div class="hero-text">
         <h1>みんなちがって、みんないい</h1>
         <p>― 金子みすゞ ―</p>
     </div>
-
 </section>
 
 <section class="page">
     <h2>アクセス</h2>
 
     <div class="map">
-        <iframe 
-            src="https://www.google.com/maps?q=山梨県南アルプス市藤田1511-2&z=17&output=embed"
-            width="100%" 
-            height="350" 
-            style="border:0;" 
-            allowfullscreen="" 
+        <iframe
+            src="https://maps.google.com/maps?q=山梨県南アルプス市藤田1511-2&z=17&output=embed&iwloc=A"
+            width="100%"
+            height="350"
+            style="border:0;"
+            title="施設所在地の地図"
+            allowfullscreen=""
             loading="lazy">
         </iframe>
+
+        <p style="text-align:right;margin-top:6px;">
+            <a href="https://www.google.com/maps/search/?api=1&query=%E5%B1%B1%E6%A2%A8%E7%9C%8C%E5%8D%97%E3%82%A2%E3%83%AB%E3%83%97%E3%82%B9%E5%B8%82%E8%97%A4%E7%94%B01511-2"
+               target="_blank"
+               rel="noopener"
+               aria-label="Googleマップで施設所在地を開く">
+                地図を大きく表示
+            </a>
+        </p>
     </div>
 </section>
 
-<script src="script.js"></script>
+<script src="script.js?v=8"></script>
 </body>
 </html>

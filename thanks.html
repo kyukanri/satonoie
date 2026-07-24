@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>送信完了</title>
+<title>合同会社ケーユー管理</title>
 
-<meta http-equiv="refresh" content="6;url=index.html">
 
 <style>
 
@@ -108,7 +107,8 @@ background:#72913c;
 
 <div class="box">
 
-<div class="check">✓</div>
+<div class="check" aria-hidden="true">✓</div>
+<span class="sr-only">送信が完了しました。</span>
 
 <h1>送信ありがとうございました</h1>
 
@@ -129,6 +129,11 @@ background:#72913c;
 </a>
 
 </div>
+
+<script>
+	// 6秒後にトップへリダイレクト（meta refresh の代替）
+	setTimeout(function(){ window.location.href = 'index.html'; }, 6000);
+</script>
 
 </body>
 
