@@ -945,3 +945,98 @@ button.photo-card:focus-visible,
         font-size: 13px;
     }
 }
+
+
+/* ===== レイアウト調整 v12 ===== */
+
+/* ① スマホで白いカードを画面幅近くまで広げる */
+@media (max-width: 768px) {
+    .page {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .property,
+    .contact-form {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .property {
+        padding: 24px 16px;
+        border-radius: 16px;
+    }
+
+    .contact-form {
+        padding: 28px 18px;
+        border-radius: 18px;
+    }
+}
+
+/* ② 会社概要の写真を縦向きでも確実に表示 */
+.company-img {
+    flex: 0 0 auto;
+}
+
+.company-img img {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+    .company {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 28px;
+    }
+
+    .company-img {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .company-img img {
+        display: block !important;
+        width: min(72vw, 300px);
+        max-width: 300px;
+        height: auto !important;
+        max-height: none;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+
+    .company-info {
+        width: 100%;
+    }
+}
+
+/* ③ フッターの内容幅を少し広げる */
+.site-footer .footer-inner {
+    max-width: 1000px;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .site-footer .footer-inner {
+        width: 100%;
+        max-width: none;
+    }
+}
