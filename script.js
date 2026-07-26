@@ -102,3 +102,21 @@ if (form) {
         }
     });
 }
+
+
+const form=document.getElementById("contactForm");
+if(form){
+form.addEventListener("submit",async function(e){
+e.preventDefault();
+const btn=document.getElementById("submitBtn");
+if(btn){btn.disabled=true;btn.innerHTML='<span class="loader"></span>送信中...';}
+try{
+const res=await fetch(form.action,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}});
+if(!res.ok) throw new Error();
+window.location.href="thanks.html";
+}catch(err){
+if(btn){btn.disabled=false;btn.textContent="送信する";}
+alert("送信に失敗しました。時間をおいてもう一度お試しください。");
+}
+});
+}
