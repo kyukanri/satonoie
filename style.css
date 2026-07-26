@@ -1040,3 +1040,94 @@ button.photo-card:focus-visible,
         max-width: none;
     }
 }
+
+
+/* ===== 位置・写真表示の修正 v13 ===== */
+
+/* トップ文字を中央配置へ戻し、中央人物の顔より下へ移動 */
+@media (max-width: 768px) {
+    .hero-text {
+        top: 34%;
+        left: 50%;
+        width: 92%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        margin: 0;
+        font-size: clamp(21px, 6.2vw, 30px);
+        line-height: 1.42;
+        letter-spacing: 0.04em;
+    }
+
+    .hero-text h1 span {
+        display: block;
+        white-space: nowrap;
+    }
+
+    .hero-text p {
+        margin-top: 10px;
+        text-align: center;
+        font-size: clamp(14px, 3.8vw, 18px);
+    }
+}
+
+/* 会社概要の代表者写真を縦画面でも確実に表示 */
+.company-img {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.company-img img {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    width: 280px;
+    max-width: 100%;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .company {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .company-img {
+        width: 100%;
+        min-height: 1px;
+        margin-bottom: 8px;
+    }
+
+    .company-img img {
+        width: 240px;
+        max-width: 78vw;
+        height: auto !important;
+    }
+
+    .company-info {
+        width: 100%;
+    }
+}
+
+/* 施設名をスマホでは明確に2行表示 */
+.property-name span {
+    display: inline;
+}
+
+@media (max-width: 768px) {
+    .property-name span {
+        display: block;
+    }
+
+    .property-name span + span {
+        margin-top: 6px;
+    }
+}
