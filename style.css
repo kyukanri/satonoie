@@ -1131,3 +1131,41 @@ button.photo-card:focus-visible,
         margin-top: 6px;
     }
 }
+
+
+/* ===== トップ文字・フッター改行の修正 v14 ===== */
+
+/* トップ画像の言葉を1行で表示し、顔より少し下へ配置 */
+@media (max-width: 768px) {
+    .hero-text {
+        top: 43%;
+        left: 50%;
+        width: calc(100% - 28px);
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        display: block;
+        margin: 0;
+        white-space: nowrap;
+        font-size: clamp(17px, 4.8vw, 24px);
+        line-height: 1.25;
+        letter-spacing: 0.015em;
+    }
+
+    .hero-text p {
+        margin-top: 12px;
+        text-align: center;
+        font-size: clamp(13px, 3.5vw, 17px);
+    }
+}
+
+/* フッターの施設名を必ず2行にする */
+.footer-title span {
+    display: block;
+}
+
+.footer-title span + span {
+    margin-top: 4px;
+}
