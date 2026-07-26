@@ -656,3 +656,166 @@ button.photo-card:focus-visible,
         gap: 14px;
     }
 }
+
+
+/* ===== 最終調整 ===== */
+
+/* ① 会社概要：スマホで表を縦積みにして縦1文字化を防ぐ */
+@media (max-width: 768px) {
+    .company {
+        gap: 28px;
+    }
+
+    .company-info {
+        width: 100%;
+    }
+
+    .company-info table,
+    .company-info tbody,
+    .company-info tr,
+    .company-info th,
+    .company-info td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .company-info tr {
+        padding: 18px 0;
+        border-bottom: 1px solid #d9cbbd;
+    }
+
+    .company-info tr:first-child {
+        border-top: 1px solid #d9cbbd;
+    }
+
+    .company-info th,
+    .company-info td {
+        border-bottom: 0;
+        padding: 0;
+    }
+
+    .company-info th {
+        margin-bottom: 8px;
+        font-size: 17px;
+        font-weight: 700;
+        color: #4a4036;
+    }
+
+    .company-info td {
+        font-size: 16px;
+        line-height: 1.8;
+        word-break: normal;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* ② フッター住所の改行を安定させる */
+.site-footer p {
+    overflow-wrap: anywhere;
+}
+
+.footer-address-break {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .footer-address-break {
+        display: block;
+    }
+
+    .site-footer .footer-inner > p:first-of-type {
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* ③ トップ画像の文字を読みやすくする */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.12) 0%,
+        rgba(0, 0, 0, 0.04) 42%,
+        rgba(0, 0, 0, 0.02) 100%
+    );
+    pointer-events: none;
+}
+
+.hero-text {
+    z-index: 1;
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.72),
+        0 6px 18px rgba(0, 0, 0, 0.38);
+}
+
+.hero-text h1 {
+    line-height: 1.35;
+}
+
+/* ⑤ 施設写真の間隔を少し広げる */
+.photo-grid {
+    gap: 18px;
+}
+
+@media (max-width: 768px) {
+    .photo-grid {
+        gap: 14px;
+    }
+}
+
+/* ⑥ スマホのGoogleマップを少し低くする */
+@media (max-width: 768px) {
+    .map iframe {
+        height: 220px;
+    }
+}
+
+/* ⑦ メニューボタン：押したときの反応を追加 */
+.menu-btn:active {
+    transform: scale(0.94);
+}
+
+.menu-btn.active {
+    transform: scale(1.03);
+}
+
+@media (hover: hover) {
+    .menu-btn:hover {
+        transform: translateY(-2px) scale(1.04);
+    }
+}
+
+/* ⑧ 送信ボタンに立体感を追加 */
+.contact-form button {
+    box-shadow:
+        0 8px 18px rgba(111, 140, 55, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    transform: translateY(0);
+    transition:
+        background 0.25s ease,
+        transform 0.18s ease,
+        box-shadow 0.25s ease;
+}
+
+.contact-form button:hover {
+    box-shadow:
+        0 10px 22px rgba(111, 140, 55, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.32);
+    transform: translateY(-2px);
+}
+
+.contact-form button:active {
+    transform: translateY(1px) scale(0.99);
+    box-shadow:
+        0 4px 10px rgba(111, 140, 55, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.contact-form button:disabled {
+    transform: none;
+    box-shadow: none;
+}
