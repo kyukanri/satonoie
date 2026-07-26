@@ -819,3 +819,129 @@ button.photo-card:focus-visible,
     transform: none;
     box-shadow: none;
 }
+
+
+/* ===== 追加の最終調整 v11 ===== */
+
+/* ① トップ文字：メニューボタンと重ならない位置・幅に調整 */
+.hero-text h1 span {
+    display: inline;
+}
+
+@media (max-width: 768px) {
+    .hero-text {
+        top: 17%;
+        left: 18px;
+        width: calc(100% - 130px);
+        transform: none;
+        text-align: left;
+    }
+
+    .hero-text h1 {
+        margin: 0;
+        font-size: clamp(20px, 5.8vw, 29px);
+        line-height: 1.45;
+        letter-spacing: 0.04em;
+    }
+
+    .hero-text h1 span {
+        display: block;
+        white-space: nowrap;
+    }
+
+    .hero-text p {
+        margin-top: 10px;
+        font-size: clamp(14px, 3.8vw, 18px);
+        text-align: center;
+    }
+}
+
+/* ② トップ画像とアクセスの間隔を詰める */
+@media (max-width: 768px) {
+    .hero + .page {
+        padding-top: 28px;
+    }
+}
+
+/* ③ 会社概要：会社名をできるだけ1行に保つ */
+@media (max-width: 768px) {
+    .company-info td {
+        overflow-wrap: normal;
+        word-break: keep-all;
+    }
+
+    .company-info tr:first-child td {
+        white-space: nowrap;
+        font-size: clamp(14px, 4vw, 16px);
+    }
+}
+
+/* ④ 施設写真：横スワイプできるカルーセルに変更 */
+@media (max-width: 768px) {
+    .photo-grid {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        padding: 4px 4px 14px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .photo-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .photo-card {
+        flex: 0 0 72%;
+        scroll-snap-align: start;
+        border-radius: 14px;
+    }
+
+    .photo-card img {
+        height: 210px;
+        object-fit: cover;
+    }
+
+    .photo-section::after {
+        content: "← 横にスワイプできます →";
+        display: block;
+        margin-top: 8px;
+        color: #8a7c6d;
+        font-size: 12px;
+        text-align: center;
+        letter-spacing: 0.08em;
+    }
+}
+
+/* ⑤ お問い合わせ欄：フォーカス時に緑色で強調 */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #8aa678;
+    outline: none;
+    box-shadow:
+        0 0 0 4px rgba(138, 166, 120, 0.16),
+        0 4px 14px rgba(138, 166, 120, 0.12);
+}
+
+/* ⑥ フッターの見出しと住所にメリハリを追加 */
+.site-footer h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    margin-bottom: 18px;
+}
+
+.site-footer .footer-inner > p:first-of-type {
+    font-size: 14px;
+    opacity: 0.82;
+}
+
+@media (max-width: 768px) {
+    .site-footer h2 {
+        font-size: 24px;
+        line-height: 1.5;
+    }
+
+    .site-footer .footer-inner > p:first-of-type {
+        font-size: 13px;
+    }
+}
