@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>合同会社ケーユー管理</title>
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
@@ -17,14 +17,14 @@
 
 <div class="overlay" id="overlay"></div>
 
-<div class="side-menu" id="sideMenu">
-    <a href="index.html">トップページ</a>
-    <a href="about.html">会社概要</a>
-    <a href="service.html">施設紹介</a>
-    <a href="contact.html">お問い合わせ</a>
-</div>
+<nav class="side-menu" id="sideMenu" aria-label="メインメニュー">
+    <a href="index.html"><span class="menu-icon" aria-hidden="true">⌂</span>トップページ</a>
+    <a href="about.html"><span class="menu-icon" aria-hidden="true">▦</span>会社概要</a>
+    <a href="service.html"><span class="menu-icon" aria-hidden="true">▣</span>施設紹介</a>
+    <a href="contact.html"><span class="menu-icon" aria-hidden="true">✉</span>お問い合わせ</a>
+</nav>
 
-<div class="page">
+<div class="page reveal">
     <h1>会社概要</h1>
 
     <div class="company">
@@ -58,6 +58,23 @@
 
 </div>
 
-<script src="script.js?v=8"></script>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <h2>障がい者グループホーム さとの家</h2>
+        <p>山梨県南アルプス市藤田1511-2 スカイハイツふじ</p>
+
+        <nav class="footer-links" aria-label="フッターメニュー">
+            <a href="index.html">トップページ</a>
+            <a href="about.html">会社概要</a>
+            <a href="service.html">施設紹介</a>
+            <a href="contact.html">お問い合わせ</a>
+        </nav>
+
+        <p class="copy">&copy; 合同会社ケーユー管理</p>
+    </div>
+</footer>
+
+<script src="script.js?v=9"></script>
 </body>
 </html>

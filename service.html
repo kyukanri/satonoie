@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>合同会社ケーユー管理</title>
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
@@ -16,66 +16,89 @@
 
 <div class="overlay" id="overlay"></div>
 
-<div class="side-menu" id="sideMenu">
-    <a href="index.html">トップページ</a>
-    <a href="about.html">会社概要</a>
-    <a href="service.html">施設紹介</a>
-    <a href="contact.html">お問い合わせ</a>
-</div>
+<nav class="side-menu" id="sideMenu" aria-label="メインメニュー">
+    <a href="index.html"><span class="menu-icon" aria-hidden="true">⌂</span>トップページ</a>
+    <a href="about.html"><span class="menu-icon" aria-hidden="true">▦</span>会社概要</a>
+    <a href="service.html"><span class="menu-icon" aria-hidden="true">▣</span>施設紹介</a>
+    <a href="contact.html"><span class="menu-icon" aria-hidden="true">✉</span>お問い合わせ</a>
+</nav>
 
-<div class="page">
+<div class="page reveal">
     <h1>施設紹介</h1>
 
     <div class="property">
         <h2>障がい者グループホーム　さとの家</h2>
         <p><strong>住所：</strong> 山梨県南アルプス市藤田１５１１－２　スカイハイツふじ</p>
 
-        <section class="photo-section">
+        <section class="photo-section reveal">
             <div class="section-title-row">
                 <h3>外観</h3>
                 <span>Exterior</span>
             </div>
 
             <div class="photo-grid">
-                <div class="photo-card"><img src="images/property_outside.jpg" alt="外観" loading="lazy" decoding="async" width="800" height="600"></div>
-                <div class="photo-card"><img src="images/exterior_01.jpg" alt="外観" loading="lazy" decoding="async" width="800" height="600"></div>
-                <div class="photo-card"><img src="images/exterior_02.jpg" alt="外観" loading="lazy" decoding="async" width="800" height="600"></div>
-                <div class="photo-card"><img src="images/exterior_03.jpg" alt="外観" loading="lazy" decoding="async" width="800" height="600"></div>
-                <div class="photo-card"><img src="images/exterior_05.jpg" alt="外観" loading="lazy" decoding="async" width="800" height="600"></div>
+                <button class="photo-card lightbox-trigger" type="button" aria-label="写真を拡大表示"><img src="images/property_outside.jpg" alt="外観" loading="lazy" decoding="async" width="800" height="600"></button>
+                <button class="photo-card lightbox-trigger" type="button" aria-label="写真を拡大表示"><img src="images/exterior_01.jpg" alt="外観" loading="lazy" decoding="async" width="800" height="600"></button>
+                <button class="photo-card lightbox-trigger" type="button" aria-label="写真を拡大表示"><img src="images/exterior_02.jpg" alt="外観" loading="lazy" decoding="async" width="800" height="600"></button>
+                <button class="photo-card lightbox-trigger" type="button" aria-label="写真を拡大表示"><img src="images/exterior_03.jpg" alt="外観" loading="lazy" decoding="async" width="800" height="600"></button>
+                <button class="photo-card lightbox-trigger" type="button" aria-label="写真を拡大表示"><img src="images/exterior_05.jpg" alt="外観" loading="lazy" decoding="async" width="800" height="600"></button>
             </div>
         </section>
 
-        <section class="photo-section">
+        <section class="photo-section reveal">
             <div class="section-title-row">
                 <h3>各個室</h3>
                 <span>Private Room</span>
             </div>
 
             <div class="photo-grid">
-                <div class="photo-card"><img src="images/room_01.jpg" alt="各個室" loading="lazy" decoding="async" width="800" height="600"></div>
-                <div class="photo-card"><img src="images/room_02.jpg" alt="各個室" loading="lazy" decoding="async" width="800" height="600"></div>
-                <div class="photo-card"><img src="images/bathroom.jpg" alt="各個室" loading="lazy" decoding="async" width="800" height="600"></div>
-                <div class="photo-card"><img src="images/kitchen.jpg" alt="各個室" loading="lazy" decoding="async" width="800" height="600"></div>
-                <div class="photo-card"><img src="images/toilet.jpg" alt="各個室" loading="lazy" decoding="async" width="800" height="600"></div>
+                <button class="photo-card lightbox-trigger" type="button" aria-label="写真を拡大表示"><img src="images/room_01.jpg" alt="各個室" loading="lazy" decoding="async" width="800" height="600"></button>
+                <button class="photo-card lightbox-trigger" type="button" aria-label="写真を拡大表示"><img src="images/room_02.jpg" alt="各個室" loading="lazy" decoding="async" width="800" height="600"></button>
+                <button class="photo-card lightbox-trigger" type="button" aria-label="写真を拡大表示"><img src="images/bathroom.jpg" alt="各個室" loading="lazy" decoding="async" width="800" height="600"></button>
+                <button class="photo-card lightbox-trigger" type="button" aria-label="写真を拡大表示"><img src="images/kitchen.jpg" alt="各個室" loading="lazy" decoding="async" width="800" height="600"></button>
+                <button class="photo-card lightbox-trigger" type="button" aria-label="写真を拡大表示"><img src="images/toilet.jpg" alt="各個室" loading="lazy" decoding="async" width="800" height="600"></button>
             </div>
         </section>
 
-        <section class="photo-section">
+        <section class="photo-section reveal">
             <div class="section-title-row">
                 <h3>共用部屋</h3>
                 <span>Common Space</span>
             </div>
 
             <div class="photo-grid">
-                <div class="photo-card"><img src="images/common_01.jpg" alt="共用部屋" loading="lazy" decoding="async" width="800" height="600"></div>
-                <div class="photo-card"><img src="images/common_02.jpg" alt="共用部屋" loading="lazy" decoding="async" width="800" height="600"></div>
-                <div class="photo-card"><img src="images/common_03.jpg" alt="共用部屋" loading="lazy" decoding="async" width="800" height="600"></div>
-                <div class="photo-card"><img src="images/common_04.jpg" alt="共用部屋" loading="lazy" decoding="async" width="800" height="600"></div>
+                <button class="photo-card lightbox-trigger" type="button" aria-label="写真を拡大表示"><img src="images/common_01.jpg" alt="共用部屋" loading="lazy" decoding="async" width="800" height="600"></button>
+                <button class="photo-card lightbox-trigger" type="button" aria-label="写真を拡大表示"><img src="images/common_02.jpg" alt="共用部屋" loading="lazy" decoding="async" width="800" height="600"></button>
+                <button class="photo-card lightbox-trigger" type="button" aria-label="写真を拡大表示"><img src="images/common_03.jpg" alt="共用部屋" loading="lazy" decoding="async" width="800" height="600"></button>
+                <button class="photo-card lightbox-trigger" type="button" aria-label="写真を拡大表示"><img src="images/common_04.jpg" alt="共用部屋" loading="lazy" decoding="async" width="800" height="600"></button>
             </div>
         </section>
     </div>
 </div>
 
-<script src="script.js?v=8"></script>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="拡大画像を閉じる">×</button>
+    <img id="lightboxImage" src="" alt="">
+</div>
+
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <h2>障がい者グループホーム さとの家</h2>
+        <p>山梨県南アルプス市藤田1511-2 スカイハイツふじ</p>
+
+        <nav class="footer-links" aria-label="フッターメニュー">
+            <a href="index.html">トップページ</a>
+            <a href="about.html">会社概要</a>
+            <a href="service.html">施設紹介</a>
+            <a href="contact.html">お問い合わせ</a>
+        </nav>
+
+        <p class="copy">&copy; 合同会社ケーユー管理</p>
+    </div>
+</footer>
+
+<script src="script.js?v=9"></script>
 </body>
 </html>

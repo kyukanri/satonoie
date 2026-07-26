@@ -1,10 +1,5 @@
-html {
-    overflow-x: hidden;
-}
-
 body {
     margin: 0;
-    overflow-x: hidden;
     font-family: "Hiragino Kaku Gothic ProN", sans-serif;
     background: #f7f3ee;
     color: #4a4036;
@@ -132,8 +127,7 @@ body {
 .side-menu {
     position: fixed;
     top: 0;
-    right: 0;
-    transform: translateX(110%);
+    right: -390px;
     width: 340px;
     height: 100vh;
     box-sizing: border-box;
@@ -148,7 +142,7 @@ body {
 }
 
 .side-menu.open {
-    transform: translateX(0);
+    right: 0;
 }
 
 .side-menu a {
@@ -218,37 +212,7 @@ body {
     padding: 120px 60px;
 }
 
-footer {
-    background: #d9cbbd;
-    color: #4a4036;
-    padding: 50px 20px;
-    text-align: center;
-}
 
-.footer-inner h3 {
-    margin-bottom: 15px;
-}
-
-.footer-inner p {
-    margin: 5px 0;
-    font-size: 14px;
-}
-
-.footer-links {
-    margin: 20px 0;
-}
-
-.footer-links a {
-    margin: 0 10px;
-    color: #4a4036;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.copy {
-    margin-top: 20px;
-    font-size: 12px;
-}
 
 .company {
     display: flex;
@@ -466,25 +430,229 @@ footer {
 
     /* 閉じているときは完全に画面外へ移動 */
     .side-menu {
-        right: 0;
+        right: -100%;
         width: 100%;
         padding-left: 30px;
-        transform: translateX(110%);
     }
 
     .side-menu.open {
-        transform: translateX(0);
+        right: 0;
     }
 
     .side-menu a {
         font-size: 20px;
     }
 }
+
+/* 横方向へのはみ出しを防止 */
+html,
+body {
+    overflow-x: hidden;
+}
+
 body.menu-open {
     overflow: hidden;
 }
 
-.menu-btn:focus-visible {
+/* メニュー内アイコン */
+.side-menu a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.menu-icon {
+    width: 30px;
+    text-align: center;
+    color: #8aa678;
+    font-size: 25px;
+    line-height: 1;
+}
+
+/* スクロール表示アニメーション */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* 施設写真をクリック可能にする */
+button.photo-card {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    cursor: zoom-in;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button.photo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+}
+
+button.photo-card:focus-visible,
+.menu-btn:focus-visible,
+.lightbox-close:focus-visible {
     outline: 3px solid #8aa678;
     outline-offset: 3px;
+}
+
+/* 写真拡大表示 */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+    background: rgba(35, 31, 27, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox img {
+    display: block;
+    max-width: min(1100px, 92vw);
+    max-height: 86vh;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.4);
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    width: 54px;
+    height: 54px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #fff;
+    color: #4a4036;
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* フッター */
+.site-footer {
+    background: #d9cbbd;
+    color: #4a4036;
+    padding: 58px 20px 34px;
+    text-align: center;
+}
+
+.site-footer .footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.site-footer h2 {
+    margin: 0 0 14px;
+    font-size: clamp(20px, 2.5vw, 28px);
+    letter-spacing: 0.06em;
+}
+
+.site-footer p {
+    margin: 7px 0;
+    line-height: 1.7;
+}
+
+.site-footer .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    margin: 28px 0;
+}
+
+.site-footer .footer-links a {
+    color: #4a4036;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease;
+}
+
+.site-footer .footer-links a:hover {
+    border-color: #4a4036;
+}
+
+.site-footer .copy {
+    margin-top: 28px;
+    font-size: 12px;
+    opacity: 0.75;
+}
+
+/* スマホ調整 */
+@media (max-width: 768px) {
+    .menu-btn {
+        top: 15px;
+        right: 15px;
+    }
+
+    .hero-text {
+        top: 18%;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(20px, 6vw, 30px);
+        line-height: 1.45;
+    }
+
+    .hero-text p {
+        font-size: clamp(14px, 4vw, 18px);
+    }
+
+    .page {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .lightbox {
+        padding: 18px;
+    }
+
+    .lightbox-close {
+        top: 14px;
+        right: 14px;
+        width: 48px;
+        height: 48px;
+        font-size: 30px;
+    }
+
+    .site-footer {
+        padding: 44px 20px 28px;
+    }
+
+    .site-footer .footer-links {
+        flex-direction: column;
+        gap: 14px;
+    }
 }
