@@ -89,34 +89,44 @@ if (lightbox && lightboxImage && lightboxClose) {
     });
 }
 
-/* お問い合わせフォーム */
-const form = document.getElementById("contactForm");
+/* お問い合わせフォーム：送信成功後に thanks.html へ移動 */
+const contactForm = document.getElementById("contactForm");
 
-if (form) {
-    form.addEventListener("submit", () => {
+if (contactForm) {
+    contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
         const submitBtn = document.getElementById("submitBtn");
+        const originalText = submitBtn ? submitBtn.textContent : "送信する";
 
         if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<span class="loader"></span>送信中...';
         }
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: "POST",
+                body: new FormData(contactForm),
+                headers: {
+                    Accept: "application/json"
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`Formspree error: ${response.status}`);
+            }
+
+            window.location.assign("thanks.html");
+        } catch (error) {
+            console.error(error);
+
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+
+            alert("送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。");
+        }
     });
-}
-
-
-const form=document.getElementById("contactForm");
-if(form){
-form.addEventListener("submit",async function(e){
-e.preventDefault();
-const btn=document.getElementById("submitBtn");
-if(btn){btn.disabled=true;btn.innerHTML='<span class="loader"></span>送信中...';}
-try{
-const res=await fetch(form.action,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}});
-if(!res.ok) throw new Error();
-window.location.href="thanks.html";
-}catch(err){
-if(btn){btn.disabled=false;btn.textContent="送信する";}
-alert("送信に失敗しました。時間をおいてもう一度お試しください。");
-}
-});
 }
